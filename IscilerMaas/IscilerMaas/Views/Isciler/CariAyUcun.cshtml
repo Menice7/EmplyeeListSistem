@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model Odenis
+
+<h1>Yeni Ödəniş Daxil Et</h1>
+
+<form method="post" asp-controller="Isciler" asp-action="CariAyUcun1">
+    <div class="form-group">
+        <input asp-for="IsciId" type="text" hidden class="form-control" id="isciId" placeholder="Ad daxil edin">
+        <label for="isciName">Ad</label>
+        <input asp-for="IsciName" type="text" class="form-control" id="isciName" placeholder="Ad daxil edin" disabled>
+        <span asp-validation-for="IsciName" style="color:red"></span>
+
+        <label for="odenisMiqdari">Miqdar</label>
+        <input asp-for="OdenisMiqdari" type="text" class="form-control" id="odenisMiqdari" placeholder="Maaş daxil edin">
+    </div>
+    <button type="submit" style="float:right" class="btn btn-success" onclick="showAlert()">Ödə</button>
+</form>
+<script>
+    function showAlert() {
+        var myText = "Maaş ödənildi";
+        alert(myText);
+    }
+</script>

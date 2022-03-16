@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model List<Isciler>
+<link href="~/css/app.css" rel="stylesheet" />
+
+<a asp-controller="Isciler" asp-action="CreateIsci" class="btn btn-outline-success">Əlavə et</a>
+
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Ad</th>
+            <th>Şöbə</th>
+            <th>Dəyişdir</th>
+            <th>Sil</th>
+            <th>Maaş Ödə</th>
+            <th>Cari ay üçün</th>
+            <th>Maaş cədvəlini göstər</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var isciler in Model)
+        {
+            <tr>
+                <td>@isciler.IsciName</td>
+                <td>@isciler.DepName</td>
+
+                <td>
+
+
+                    @Html.ActionLink("Dəyişdir", "CreateIsci", "Isciler", new { isciId = isciler.IsciId },
+           new { @class = "btn btn-success" })
+
+
+                </td>
+                <td>
+                    @Html.ActionLink("Sil", "DeleteIsci", "Isciler", new { isciId = isciler.IsciId },
+               new { @class = "btn btn-danger", onclick = "return confirm('Məlumat Silinsin?');" })
+                </td>
+                <td>
+                    @Html.ActionLink("Maaş Ödə", "MaasOde", "Isciler", new { isciId = isciler.IsciId },
+               new { @class = "btn btn-primary" })
+                </td>
+                <td>
+
+                    @if (isciler.TrueFalse == false)
+                    {
+                        <text>Action is not available</text>
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Cari ay üçün", "CariAyUcun", "Isciler", new { isciId = isciler.IsciId },
+               new { @class = "btn btn-secondary" })
+
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Göstər", "Maas", "Isciler", new { isciId = isciler.IsciId },
+              new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

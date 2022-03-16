@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model List<Department>
+<link href="~/css/app.css" rel="stylesheet" />
+
+<a asp-controller="Isciler" asp-action="CreateSobe" class="btn btn-outline-success">Əlavə et</a>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+
+            <th>Şöbə</th>
+            <th>Dəyişdir</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var departments in Model)
+        {
+            <tr>
+
+                <td>@departments.DepName</td>
+
+                <td>
+                    @Html.ActionLink("Dəyişdir", "CreateSobe", "Isciler", new { depId = departments.DepId },
+               new { @class = "btn btn-success" })
+                </td>
+                <td>
+                    @Html.ActionLink("Sil", "DeleteDep", "Isciler", new { depId = departments.DepId },
+               new { @class = "btn btn-danger", onclick = "return confirm('Məlumat Silinsin?');" })
+                </td>
+
+                @*@()
+                    <td><input type="checkbox" id="myCheck"></td>*@
+            </tr>
+        }
+    </tbody>
+
+</table>

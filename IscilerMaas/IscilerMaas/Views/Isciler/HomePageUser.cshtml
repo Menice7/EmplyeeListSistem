@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model Isciler
+<link href="~/css/app.css" rel="stylesheet" />
+
+<a asp-controller="Isciler" asp-action="CreateIsci" class="btn btn-outline-success">Əlavə et</a>
+<a asp-controller="Isciler" asp-action="Export" class="btn btn-outline-danger">Export et</a>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Ad</th>
+            <th>Şöbə</th>
+            <th>Dəyişdir</th>
+            <th>Sil</th>
+            <th>Maaş Ödə</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>@Model.IsciName</td>
+            <td>@Model.DepName</td>
+
+            <td>
+                <text>Action is not available</text>
+
+            </td>
+            <td>
+                <text>Action is not available</text>
+            </td>
+            <td>
+                <text>Action is not available</text>
+            </td>
+            @*@()
+                <td><input type="checkbox" id="myCheck"></td>*@
+        </tr>
+
+    </tbody>
+
+</table>

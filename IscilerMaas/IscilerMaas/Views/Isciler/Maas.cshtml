@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model List<Odenis>
+<link href="~/css/app.css" rel="stylesheet" />
+
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Ad</th>
+            <th>İl</th>
+            <th>Ay</th>
+            <th>Miqdar</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var isciler in Model)
+        {
+            <tr>
+                <td>@isciler.IsciName</td>
+                <td>@isciler.Il</td>
+
+                <td>
+                    @isciler.Ay
+            </td>
+            <td>
+                @isciler.OdenisMiqdari
+            </td>
+
+        </tr>
+    }
+    </tbody>
+
+</table>

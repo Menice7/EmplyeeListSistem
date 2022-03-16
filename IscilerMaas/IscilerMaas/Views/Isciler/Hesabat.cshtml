@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model List<Odenis>
+<h3 class="text-center text-uppercase">İşçilər</h3>
+
+
+<table class="table table-bordered" id="example1">
+    <thead class="thead-dark">
+        <tr>
+            <th>Ad</th>
+            <th>Il</th>
+            <th>Ay</th>
+            <th>Maaş</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var anbar in Model)
+        {
+            <tr>
+                <td>@anbar.IsciName</td>
+
+                <td>@anbar.Il</td>
+
+                <td>@anbar.Ay</td>
+
+                <td>@anbar.OdenisMiqdari</td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<link href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css" rel="stylesheet" />
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+<script type="text/javascript">
+
+    $('#example1').DataTable({
+        dom: 'Bfrtip',
+
+        "searching": true,
+        "paging": true,
+        "order": [[0, "asc"]],
+        "ordering": true,
+        "columnDefs": [{
+            "targets": [3],
+            "orderable": false,
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        }]
+
+
+    });
+
+</script>

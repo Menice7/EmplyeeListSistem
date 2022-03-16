@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model Isciler
+
+<h1>Yeni İşci Daxil Et</h1>
+
+<form method="post" asp-controller="Isciler" asp-action="AddOrUpdateIsci">
+    <div class="form-group">
+        <input asp-for="IsciId" type="text" hidden class="form-control" id="isciId" placeholder="Ad daxil edin">
+        <label for="isciName">Ad</label>
+        <input asp-for="IsciName" type="text" class="form-control" id="isciName" placeholder="Ad daxil edin">
+        <span asp-validation-for="IsciName" style="color:red"></span>
+
+        <label for="sifre">Şifrə</label>
+        <input asp-for="Sifre" type="text" class="form-control" id="sifre" placeholder="Şifrə daxil edin">
+        <span asp-validation-for="Sifre" style="color:red"></span>
+
+        <label for="RoleId">Role</label>
+        <select asp-for="RoleId" class="form-control" asp-items="@(new SelectList(Model.Roles,"RoleId","RoleName"))"></select>
+
+
+        <label for="DepId">Şöbə</label>
+        <select asp-for="DepId" class="form-control" asp-items="@(new SelectList(Model.Departments,"DepId","DepName"))"></select>
+
+
+    </div>
+    <button type="submit" style="float:right" class="btn btn-success">Saxla</button>
+</form>

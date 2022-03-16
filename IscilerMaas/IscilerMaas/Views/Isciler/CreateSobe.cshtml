@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model Department
+
+<h1>Yeni Şöbə Daxil Et</h1>
+
+<form method="post" asp-controller="Isciler" asp-action="AddOrUpdateDep">
+    <div class="form-group">
+        <input asp-for="DepId" type="text" hidden class="form-control" id="depId" placeholder="Ad daxil edin">
+        <label for="depName">Şöbə</label>
+        <input asp-for="DepName" type="text" class="form-control" id="depName" placeholder="Şöbə daxil edin">
+        <span asp-validation-for="DepName" style="color:red"></span>
+
+
+    </div>
+    <button type="submit" style="float:right" class="btn btn-success">Saxla</button>
+</form>
