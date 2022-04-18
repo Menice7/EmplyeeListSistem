@@ -13,7 +13,7 @@ namespace IscilerMaas.Controllers
 {
     public class IscilerController : Controller
     {
-       
+       string stringg= "str1";
         string CONNECTIONSTRING = "Server = localhost; Database =CompanyDB; Integrated Security = True;";
         #region Login
         public int loginrole;
@@ -53,7 +53,7 @@ namespace IscilerMaas.Controllers
             List<Users> lusers = LUsers();
             int say = lusers.Count();
         
-            string str="";
+            string str=String.Empty;
     
             foreach (var i in lusers)
             {
