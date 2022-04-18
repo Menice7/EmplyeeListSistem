@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "_Layout";
 }
-@model Isciler
+@model List<Isciler>
 <link href="~/css/app.css" rel="stylesheet" />
 
 <a asp-controller="Isciler" asp-action="CreateIsci" class="btn btn-outline-success">Əlavə et</a>
@@ -18,24 +18,27 @@
         </tr>
     </thead>
     <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.IsciName</td>
+                <td>@i.DepName</td>
 
-        <tr>
-            <td>@Model.IsciName</td>
-            <td>@Model.DepName</td>
+                <td>
+                    <text>Action is not available</text>
 
-            <td>
-                <text>Action is not available</text>
-
-            </td>
-            <td>
-                <text>Action is not available</text>
-            </td>
-            <td>
-                <text>Action is not available</text>
-            </td>
-            @*@()
+                </td>
+                <td>
+                    <text>Action is not available</text>
+                </td>
+                <td>
+                    <text>Action is not available</text>
+                </td>
+                @*@()
                 <td><input type="checkbox" id="myCheck"></td>*@
-        </tr>
+            </tr>
+        }
+
 
     </tbody>
 

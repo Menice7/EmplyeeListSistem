@@ -23,35 +23,60 @@ namespace IscilerMaas.Controllers
             return View();
 
         }
-        public IActionResult Login(Isciler isciler)
+        public List<Users> LUsers()
         {
-            List<Isciler> lisciler = LIscilerAllFields();
-            int say = lisciler.Count();
+            DataTable dt = new DataTable();
+            SqlConnection con = new SqlConnection(CONNECTIONSTRING);
+            con.Open();
+            string query = "select * from user1";
+            SqlCommand cmd = new SqlCommand(query,con);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            con.Close();
+
+            List<Users> users = new List<Users>();
+            users = (from DataRow dr in dt.Rows
+                     select new Users() {
+                     UserId = Convert.ToInt32(dr["UserId"]),
+                     Username= dr["Username"].ToString(),
+                     Ad = dr["Ad"].ToString(),
+                     Soyad = dr["Soyad"].ToString(),
+                     Sifre = dr["Sifre"].ToString(),
+                     Email = dr["Email"].ToString(),
+                     RoleId = Convert.ToInt32(dr["RoleId"])
+                     }).ToList();
+
+            return users;
+        }
+        public IActionResult Login(Users user)
+        {
+            List<Users> lusers = LUsers();
+            int say = lusers.Count();
         
             string str="";
     
-            foreach (var i in lisciler)
+            foreach (var i in lusers)
             {
              
               
-                if (isciler.IsciName == i.IsciName.Trim() & isciler.Sifre == i.Sifre.Trim())
+                if (user.Username == i.Username.Trim() & user.Sifre == i.Sifre.Trim())
                 {
                     if (i.RoleId == 1)
                     {
                         str = "HomePage";
-                        return View(str, lisciler);
+                        return View(str,LIscilerAllFields());
                     }
                     else if (i.RoleId == 2)
                     {
                         str = "HomePageUser";
-                        isciler.DepName = i.DepName;
-                        return View(str, isciler);
+                       // user.DepName = i.DepName;
+                        return View(str, LIscilerAllFields());
 
                     }
                     else { RedirectToAction("Index"); }
                 }
             }
-           return View(str,lisciler);
+           return View("HomePage", LIscilerAllFields());
         }
 
         public IActionResult Registration()
@@ -585,7 +610,46 @@ select i.IsciId,i.IsciName,i.DepId,i.RoleId,i.Sifre, d.DepName from Isciler i, D
             List<Role> roles = LRole();
             return View(roles);
         }
-       
+
+        #endregion
+        #region UpdateRole
+        public IActionResult ChangeRole()
+        {
+            List<Users> users = LUsers();
+            return View(users);
+        }
+        public IActionResult UpdateRole(Users user)
+        {
+            SqlConnection con = new SqlConnection(CONNECTIONSTRING);
+            con.Open();
+            string query = $"update Isciler set RoleId={user.RoleId}";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            if (user.RoleId == 1)
+            {
+                return View("HomePage");
+            }
+            else
+            {
+                return View("HomePageUser");
+            }
+        }
+        #endregion
+
+        #region Register
+        public IActionResult Register(Users user)
+        {
+            SqlConnection con = new SqlConnection(CONNECTIONSTRING);
+            con.Open();
+            string query = $"insert into User1 values ('{user.Username}','{user.Ad}'," +
+                $"'{user.Soyad}','{user.Sifre}','{user.Email}',{user.RoleId})";
+            SqlCommand cmd = new SqlCommand(query,con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            return View("Index");
+        }
+
         #endregion
     }
 }

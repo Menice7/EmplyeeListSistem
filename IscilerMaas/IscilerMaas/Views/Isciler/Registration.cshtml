@@ -55,9 +55,10 @@
         background-color: #f1f1f1;
         text-align: center;
     }
+</style>
+@model Users
+<form method="post" asp-controller="Isciler" asp-action="Register">
 
-    </style>
-<form action="action_page.php">
     <div class="container">
         <h1>Qeydiyyat</h1>
         <p>Hesab yaratmaq üçün formu doldurun.</p>
@@ -65,7 +66,6 @@
 
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Email daxil edin" name="email" id="email" required>
-
 
         <label for="ad"><b>Ad</b></label>
         <input type="text" placeholder="Adınızı daxil edin" name="ad" id="ad" required>
@@ -75,19 +75,53 @@
         <input type="text" placeholder="Soyadınızı daxil edin" name="soyad" id="soyad" required>
 
 
+        <label for="username"><b>İstifadəçi adı</b></label>
+        <input type="text" value="" 
+               placeholder="İstifadəçi adı daxil edin" name="username" 
+               id="username" required>
 
-        <label for="psw"><b>Şifrə</b></label>
-        <input type="password" placeholder="Şifrə daxil edin" name="psw" id="psw" required>
 
-        <label for="psw-repeat"><b>Şifrəni təkrarlayın</b></label>
-        <input type="password" placeholder="Şifrəni təkrarlayın" name="psw-repeat" id="psw-repeat" required>
+        <label for="sifre"><b>Şifrə</b></label>
+
+        <input type="password" placeholder="Şifrə daxil edin" name="sifre" id="sifre" 
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              required>
+        <div id="message">
+            <h3>Password must contain the following:</h3>
+            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+            <p id="number" class="invalid">A <b>number</b></p>
+            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+        </div>
+
+        <label for="tekrar-sifre"><b>Şifrəni təkrarlayın</b></label>
+
+        <input type="password" placeholder="Şifrəni təkrarlayın" name="tekrar-sifre" id="tekrar-sifre" required>
+
         <hr>
 
         @*<p>Hesab yaratmaqla bizim  <a href="#">Terms & Privacy</a>.</p>*@
         <button type="submit" class="registerbtn">Qeyd ol</button>
     </div>
+    <script>
 
+        function getVal() {
+            const val = document.querySelector('input').value;
+            console.log(val);
+        }
+        $('#password, #confirm_password').on('keyup', function () {
+            if ($('#password').val() == $('#confirm_password').val()) {
+                $('#message').html('Matching').css('color', 'green');
+            } else
+                $('#message').html('Not Matching').css('color', 'red');
+        });
+    </script>
+    <span id='message'></span>
     <div class="container signin">
         <p>Hesabınız var? <a href="/Isciler/Index">Daxil olun</a>.</p>
     </div>
 </form>
+
+
+

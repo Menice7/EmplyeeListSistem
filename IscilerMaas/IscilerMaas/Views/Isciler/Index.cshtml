@@ -1,8 +1,18 @@
 ﻿<style>
+    .bg-img {
+        background-image: url('~/css/images/employment_law_panel.jpg');
+    }
     form {
-      
-  border: 3px solid #f1f1f1;
-}
+        border: 3px solid #f1f1f1;
+        max-width: 500px;
+        margin-top: 5%;
+        margin-bottom: 100px;
+        margin-right: 150px;
+        margin-left: 31%;
+        background: white;
+        padding: 10px;
+        width: 40%;
+    }
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
@@ -45,7 +55,8 @@ button:hover {
 
 /* Avatar image */
 img.avatar {
-  width: 40%;
+  width: 20%;
+  height: 12%;
   border-radius: 50%;
 }
 
@@ -73,31 +84,34 @@ span.psw {
 
 </style>
 
-@model Isciler
+@model Users
     
-<form method="post" asp-controller="Isciler" asp-action="Login">
-    <div class="imgcontainer">
-        <img src="~/css/images/download.png"  width="500" height="500" alt="Avatar" class="avatar">
+    <div class="bg-dark">
+        <form method="post" asp-controller="Isciler" asp-action="Login" class="container">
+            <div class="imgcontainer">
+                <img src="~/css/images/download.png" width="500" height="500" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="form-group">
+                <label for="username"><b>İstifadəçi adı</b></label>
+                <input asp-for="Username" type="text" class="form-control" placeholder="İstifadəçi adını daxil edin" id="isciName" required>
+
+                <label for="sifre"><b>Şifrə</b></label>
+                <input asp-for="Sifre" type="password" class="form-control"
+                       placeholder="Şifrəni daxil edin" id="sifre" required>
+
+
+                <input asp-for="RoleId" type="hidden" class="form-control" id="roleId" placeholder="role daxil edin">
+
+
+                <button type="submit">Daxil ol</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember">Məni yadda saxla
+                </label>
+            </div>
+
+            <div class="container registration">
+                <p>Hesabınız yoxdur? <a href="/Isciler/Registration">Yeni hesab yaradın</a>.</p>
+            </div>
+        </form>
     </div>
-
-    <div class="form-group">
-        <label for="isciName"><b>İstifadəçi adı</b></label>
-        <input asp-for="IsciName" type="text" class="form-control" placeholder="İstifadəçi adını daxil edin" id="isciName" required>
-
-        <label for="sifre"><b>Şifrə</b></label>
-        <input asp-for="Sifre" type="password" class="form-control" placeholder="Şifrəni daxil edin" id="sifre" required>
-
-
-        <input asp-for="RoleId" type="hidden" class="form-control" id="roleId" placeholder="role daxil edin">
-
-
-        <button type="submit">Daxil ol</button>
-        <label>
-            <input type="checkbox" checked="checked" name="remember">Məni yadda saxla
-        </label>
-    </div>
-
-    <div class="container registration">
-        <p>Hesabınız yoxdur? <a href="/Isciler/Registration">Yeni hesab yaradın</a>.</p>
-    </div>
-</form>

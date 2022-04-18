@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/XCPXOYA8yK0KfD5MNFy1kvBYQELdIMWmdW77m4EKjfw1HFPifHFljix7njpeCaV1I7oppLUcYfUBykPckRA1A==",
+  "dgSpecHash": "EPoppLeyaEr6jWuJsgv5pAEu3FwyoLZn4n2h7yu1FmtsDDZpr2nrOTVg67zOHdsd4oY9MZ/GwJOAGXphoo1O+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\source\\repos\\IscilerMaas\\IscilerMaas\\IscilerMaas.csproj",
+  "projectFilePath": "C:\\Users\\Asus\\Desktop\\EmplyeeListSistem\\IscilerMaas\\IscilerMaas\\IscilerMaas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

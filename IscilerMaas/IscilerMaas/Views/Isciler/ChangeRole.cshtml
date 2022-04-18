@@ -1,0 +1,23 @@
+﻿@model List<Users>
+<form>
+<table >
+    <thead>
+        <tr>
+            <td>İstifadəçi adı</td>
+         
+        
+        <td>Role</td></tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+        <tr>
+            <td>@i.Ad</td>
+        
+        <td><button>@i.RoleId</button></td>
+       @*<td> <select asp-for="@i.RoleId" asp-items="@(new SelectList(Model.Roles,"RoleId","RoleName")"> </select> /></td>*@
+        </tr>
+        }
+    </tbody>
+</table>
+</form>

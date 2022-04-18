@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\source\\repos\\IscilerMaas\\IscilerMaas\\IscilerMaas.csproj": {}
+    "C:\\Users\\Asus\\Desktop\\EmplyeeListSistem\\IscilerMaas\\IscilerMaas\\IscilerMaas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\source\\repos\\IscilerMaas\\IscilerMaas\\IscilerMaas.csproj": {
+    "C:\\Users\\Asus\\Desktop\\EmplyeeListSistem\\IscilerMaas\\IscilerMaas\\IscilerMaas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\IscilerMaas\\IscilerMaas\\IscilerMaas.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Desktop\\EmplyeeListSistem\\IscilerMaas\\IscilerMaas\\IscilerMaas.csproj",
         "projectName": "IscilerMaas",
-        "projectPath": "C:\\Users\\Asus\\source\\repos\\IscilerMaas\\IscilerMaas\\IscilerMaas.csproj",
+        "projectPath": "C:\\Users\\Asus\\Desktop\\EmplyeeListSistem\\IscilerMaas\\IscilerMaas\\IscilerMaas.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\source\\repos\\IscilerMaas\\IscilerMaas\\obj\\",
+        "outputPath": "C:\\Users\\Asus\\Desktop\\EmplyeeListSistem\\IscilerMaas\\IscilerMaas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
